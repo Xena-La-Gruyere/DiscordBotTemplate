@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  bot:
+    build: .
+    environment:
+      - Discord__Token=
+      - Discord__CommandPrefix=!
+      - Logging__LogLevel__Default=Trace
