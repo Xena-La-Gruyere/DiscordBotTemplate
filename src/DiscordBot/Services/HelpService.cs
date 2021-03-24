@@ -50,18 +50,14 @@ namespace DiscordBot.Services
 
             var sb = new StringBuilder();
 
-            sb.AppendLine(command.Name)
-                .Append("Summary : ")
+            sb.Append("Aliases : ")
+                .AppendLine(string.Join(", ", command.Aliases))
+                .AppendLine("Summary : ")
                 .AppendLine(command.Summary);
 
-            if (command.Aliases.Any())
-            {
-                sb.AppendLine("Aliases :")
-                    .Append(string.Join(", ", command.Aliases));
-            }
             if (command.Parameters.Any())
             {
-                sb.AppendLine("Parameters :");
+                sb.Append("Parameters : ");
 
                 foreach (var parameter in command.Parameters)
                 {
@@ -70,8 +66,6 @@ namespace DiscordBot.Services
                 }
             }
             
-            sb.AppendFormat(": {0}", command.Summary).AppendLine();
-
             return sb.ToString();
         }
     }

@@ -58,6 +58,8 @@ namespace DiscordBot
                 }))
                 .Configure<DiscordOptions>(o => config.GetSection("Discord").Bind(o))
                 .AddHostedService<DiscordHostedService>()
+                .AddSingleton<FooService>()
+                .AddSingleton<HelpService>()
                 .AddSingleton<FooModule>();
         }
     }

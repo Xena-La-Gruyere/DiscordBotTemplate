@@ -19,7 +19,7 @@ namespace DiscordBot.Modules
 
         [Command("add")]
         [Alias("a")]
-        [Summary("Add two numbers")]
+        [Summary("Add two numbers.")]
         public Task Add([Summary("first argument")] int a, [Summary("second argument")] int b)
         {
             var result = _fooService.Add(a, b);
@@ -28,18 +28,21 @@ namespace DiscordBot.Modules
         }
 
         [Command("man")]
+        [Summary("Command manual page.")]
         public Task Man(string command)
         {
             return ReplyAsync(_helpService.Man(command));
         }
 
         [Command("help")]
+        [Summary("Show all command and simple usage.")]
         public Task Help()
         {
             return ReplyAsync(_helpService.Help());
         }
 
         [Command("version")]
+        [Summary("Show bot version.")]
         public Task Version()
         {
             var sb = new StringBuilder().Append("Version : ").Append(GetType().Assembly.GetName().Version);
